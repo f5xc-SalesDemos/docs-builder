@@ -43,12 +43,12 @@ Migrated `robinmordasiewicz/f5xc-docs-theme` to
 
 Changes made:
 
-- Created `f5xc-SalesDemos/docs-theme` repo and pushed all source files
+- Created `f5xc-salesdemos/docs-theme` repo and pushed all source files
 - Updated `package.json` URLs (homepage, repository, bugs) to new org
 - Updated `DOCS_SITE` default to `https://f5xc-salesdemos.github.io`
 - Updated `DOCS_HOME` default in `Banner.astro` and `SiteTitle.astro`
 - Updated `playwright.config.ts` base URL
-- Updated `dispatch-downstream.yml` target to `f5xc-SalesDemos/docs-builder`
+- Updated `dispatch-downstream.yml` target to `f5xc-salesdemos/docs-builder`
 - Deleted `auto-merge.yml` (consistent with docs-builder)
 - Added TODO comments for Phase 3 template migration
 - Updated `docs/01-architecture.mdx` npm alias in this repo
