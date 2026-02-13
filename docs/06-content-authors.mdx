@@ -79,11 +79,11 @@ For a full production build that matches CI output, pass `GITHUB_REPOSITORY` so 
 docker run --rm \
   -v "$(pwd)/docs:/content/docs:ro" \
   -v "$(pwd)/output:/output" \
-  -e GITHUB_REPOSITORY="f5xc-SalesDemos/my-docs" \
+  -e GITHUB_REPOSITORY="f5xc-salesdemos/my-docs" \
   ghcr.io/f5xc-salesdemos/docs-builder:latest
 ```
 
-Replace `f5xc-SalesDemos/my-docs` with your actual `owner/repo`. This sets `DOCS_BASE` to `/my-docs`, matching how GitHub Pages serves project sites under a subpath.
+Replace `f5xc-salesdemos/my-docs` with your actual `owner/repo`. This sets `DOCS_BASE` to `/my-docs`, matching how GitHub Pages serves project sites under a subpath.
 
 Then serve the output with the correct base path:
 
@@ -108,7 +108,7 @@ docker run --rm \
   -v "$(pwd)/docs:/content/docs:ro" \
   -v "$(pwd)/docs/images:/app/public/images:ro" \
   -v "$(pwd)/output:/output" \
-  -e GITHUB_REPOSITORY="f5xc-SalesDemos/my-docs" \
+  -e GITHUB_REPOSITORY="f5xc-salesdemos/my-docs" \
   ghcr.io/f5xc-salesdemos/docs-builder:latest
 ```
 
@@ -140,7 +140,7 @@ Pass them with `-e`:
 ```sh
 docker run --rm -it \
   -e DOCS_TITLE="My Local Preview" \
-  -e GITHUB_REPOSITORY="f5xc-SalesDemos/my-docs" \
+  -e GITHUB_REPOSITORY="f5xc-salesdemos/my-docs" \
   -v "$(pwd)/docs:/content/docs" \
   -p 4321:4321 \
   --entrypoint sh \

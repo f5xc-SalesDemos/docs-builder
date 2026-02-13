@@ -1,7 +1,7 @@
 # Org Migration Guide
 
 This document tracks the migration of the docs pipeline from the
-`robinmordasiewicz` GitHub org to the `f5xc-SalesDemos` org.
+`robinmordasiewicz` GitHub org to the `f5xc-salesdemos` org.
 
 ## Migration Phases
 
@@ -10,7 +10,7 @@ This document tracks the migration of the docs pipeline from the
 **Status:** Complete
 
 Migrated `robinmordasiewicz/f5xc-docs-builder` to
-`f5xc-SalesDemos/docs-builder`.
+`f5xc-salesdemos/docs-builder`.
 
 Changes made:
 
@@ -39,11 +39,11 @@ What still references the old org (and why):
 ### Phase 2: docs-theme (future)
 
 Migrate `robinmordasiewicz/f5xc-docs-theme` to
-`f5xc-SalesDemos/docs-theme`.
+`f5xc-salesdemos/docs-theme`.
 
 Checklist:
 
-- [ ] Create `f5xc-SalesDemos/docs-theme` repo
+- [ ] Create `f5xc-salesdemos/docs-theme` repo
 - [ ] Re-publish npm package under `@f5xc-salesdemos` scope
 - [ ] Update `package.json` alias in this repo
 - [ ] Update `docs/01-architecture.mdx` npm alias example
@@ -52,11 +52,11 @@ Checklist:
 ### Phase 3: docs-control (future)
 
 Migrate `robinmordasiewicz/f5xc-template` to
-`f5xc-SalesDemos/docs-control`.
+`f5xc-salesdemos/docs-control`.
 
 Checklist:
 
-- [ ] Create `f5xc-SalesDemos/docs-control` repo
+- [ ] Create `f5xc-salesdemos/docs-control` repo
 - [ ] Update all workflow `uses:` references (4 workflow files)
 - [ ] Update `build-image.yml` dispatch API call
 - [ ] Update `docs/05-ci-cd.mdx` code snippets
