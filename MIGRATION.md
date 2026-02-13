@@ -212,7 +212,7 @@ docker run --rm \
 ### Option 2: Manual builder checkout
 
 ```bash
-git clone https://github.com/f5xc-SalesDemos/docs-builder.git /tmp/builder
+git clone https://github.com/f5xc-salesdemos/docs-builder.git /tmp/builder
 cd /tmp/builder
 npm ci
 rm -rf src/content/docs/*

@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   auto-merge:
-    # TODO: Update to f5xc-SalesDemos/docs-control when template repo is migrated (Phase 3)
+    # TODO: Update to f5xc-salesdemos/docs-control when template repo is migrated (Phase 3)
     uses: robinmordasiewicz/f5xc-template/.github/workflows/auto-merge.yml@main
     secrets:
       REPO_ADMIN_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
