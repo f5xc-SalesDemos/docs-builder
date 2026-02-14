@@ -5,14 +5,6 @@ CONTENT_DIR="${CONTENT_DIR:-/content/docs}"
 OUTPUT_DIR="${OUTPUT_DIR:-/output}"
 GENERATE_PDF="${GENERATE_PDF:-false}"
 
-# Update dependencies to latest versions
-npm install --legacy-peer-deps
-npm update --legacy-peer-deps
-
-# Copy Astro config from theme package (single source of truth)
-cp /app/node_modules/f5xc-docs-theme/astro.config.mjs /app/astro.config.mjs
-cp /app/node_modules/f5xc-docs-theme/src/content.config.ts /app/src/content.config.ts
-
 # Inject content
 if [ -d "$CONTENT_DIR" ]; then
   cp -r "$CONTENT_DIR"/* /app/src/content/docs/
