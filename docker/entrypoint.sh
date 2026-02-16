@@ -50,8 +50,13 @@ for dir in "$CONTENT_DIR"/*/; do
   dirname=$(basename "$dir")
   # Skip if directory contains any .md or .mdx files
   if ! find "$dir" -maxdepth 1 -name '*.md' -o -name '*.mdx' | grep -q .; then
-    ln -sfn "$dir" "/app/public/$dirname"
-    echo "Static asset directory detected: $dirname"
+    # Skip if already mounted by the CI workflow (avoids read-only mount conflict)
+    if [ -e "/app/public/$dirname" ]; then
+      echo "Static asset directory already mounted: $dirname"
+    else
+      ln -sfn "$dir" "/app/public/$dirname"
+      echo "Static asset directory detected: $dirname"
+    fi
   fi
 done
 
