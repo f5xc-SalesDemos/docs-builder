@@ -1,5 +1,5 @@
 {
-  "name": "f5xc-docs-builder",
+  "name": "docs-builder",
   "type": "module",
   "version": "1.0.0",
   "scripts": {
