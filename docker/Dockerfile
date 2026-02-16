@@ -1,5 +1,5 @@
 FROM node:24-alpine AS builder
-LABEL org.opencontainers.image.description="f5xc-docs-builder"
+LABEL org.opencontainers.image.description="docs-builder"
 WORKDIR /app
 
 # Install Chromium and dependencies for Puppeteer (PDF generation)

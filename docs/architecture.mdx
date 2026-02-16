@@ -19,7 +19,7 @@ content-repo/
     index.mdx
     guide.mdx
 
-f5xc-docs-builder/
+docs-builder/
   src/content/docs/ ← empty at rest (.gitkeep)
 ```
 
@@ -102,7 +102,7 @@ flowchart LR
 | Concern | When | How |
 |---------|------|-----|
 | MDX → HTML | Build time | Astro compiler |
-| Mermaid code blocks → container divs | Build time | `remark-mermaid.mjs` plugin (from `f5xc-docs-theme`) |
+| Mermaid code blocks → container divs | Build time | `remark-mermaid.mjs` plugin (from `docs-theme`) |
 | Placeholder tokens → interactive spans | Client time | `placeholder-dom.ts` TreeWalker |
 | Mermaid SVG rendering | Client time | `mermaid` CDN import in `placeholder-dom.ts` |
 | Placeholder form state | Client time | `placeholder-store.ts` + localStorage |
