@@ -38,15 +38,33 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: docker/Dockerfile
-          push: true
-          platforms: linux/amd64,linux/arm64
-          tags: |
-            ${{ env.IMAGE_NAME }}:latest
-            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+      - name: Build and push with retry
+        run: |
+          MAX_ATTEMPTS=3
+          DELAY=60
+          for attempt in $(seq 1 $MAX_ATTEMPTS); do
+            echo "::group::Build attempt $attempt of $MAX_ATTEMPTS"
+            if docker buildx build \
+              --platform linux/amd64,linux/arm64 \
+              --tag "${{ env.IMAGE_NAME }}:latest" \
+              --tag "${{ env.IMAGE_NAME }}:${{ github.sha }}" \
+              --file docker/Dockerfile \
+              --push \
+              .; then
+              echo "::endgroup::"
+              echo "Build succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "::endgroup::"
+            echo "::warning::Build failed on attempt $attempt"
+            if [ "$attempt" -lt "$MAX_ATTEMPTS" ]; then
+              echo "Waiting ${DELAY}s before retry..."
+              sleep $DELAY
+              DELAY=$((DELAY * 2))
+            fi
+          done
+          echo "::error::All $MAX_ATTEMPTS build attempts failed"
+          exit 1
 
   dispatch:
     name: Trigger downstream Pages rebuilds
