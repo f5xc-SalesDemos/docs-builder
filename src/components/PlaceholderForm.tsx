@@ -32,6 +32,8 @@ export default function PlaceholderForm() {
     emitChange(defaults);
   }, []);
 
+  if (Object.keys(placeholderDefs).length === 0) return null;
+
   return (
     <details className="ph-form-wrapper">
       <summary>Customize values for this guide</summary>

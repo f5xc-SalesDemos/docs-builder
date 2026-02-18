@@ -13,6 +13,14 @@ else
   exit 1
 fi
 
+# Placeholder form: if content repo provides placeholders.json, activate
+if [ -f /app/src/content/docs/placeholders.json ]; then
+  cp /app/src/content/docs/placeholders.json /app/src/data/placeholders.json
+  rm /app/src/content/docs/placeholders.json
+  export DOCS_MARKDOWN_CONTENT="./src/overrides/MarkdownContent.astro"
+  echo "Placeholder form enabled"
+fi
+
 # Extract title from index.mdx frontmatter (if not set via env)
 if [ -z "$DOCS_TITLE" ] && [ -f /app/src/content/docs/index.mdx ]; then
   DOCS_TITLE=$(grep -m1 '^title:' /app/src/content/docs/index.mdx | sed 's/title: *["]*//;s/["]*$//' || echo "Documentation")
