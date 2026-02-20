@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 import {
   FIELD_GROUPS,
   placeholderDefs,
@@ -7,7 +7,7 @@ import {
   clearValues,
   getDefaults,
   emitChange,
-} from '../lib/placeholder-store';
+} from "../lib/placeholder-store";
 
 export default function PlaceholderForm() {
   const [values, setValues] = useState<Record<string, string>>(() => loadValues());
@@ -48,11 +48,8 @@ export default function PlaceholderForm() {
                 return (
                   <label key={key}>
                     <span className="ph-label">{def.description}</span>
-                    {def.type === 'dropdown' && def.options ? (
-                      <select
-                        value={values[key] ?? def.default}
-                        onChange={(e) => handleChange(key, e.target.value)}
-                      >
+                    {def.type === "dropdown" && def.options ? (
+                      <select value={values[key] ?? def.default} onChange={(e) => handleChange(key, e.target.value)}>
                         {def.options.map((opt) => (
                           <option key={opt} value={opt}>
                             {opt}
