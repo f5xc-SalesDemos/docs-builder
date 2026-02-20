@@ -5,6 +5,7 @@ LABEL org.opencontainers.image.description="docs-builder"
 WORKDIR /app
 
 # Install Chromium and dependencies for Puppeteer (PDF generation)
+# hadolint ignore=DL3018
 RUN apk add --no-cache \
     chromium \
     nss \
