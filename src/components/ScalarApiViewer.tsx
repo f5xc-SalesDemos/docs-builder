@@ -1,5 +1,5 @@
-import { ApiReferenceReact } from "@scalar/api-reference-react";
-import "@scalar/api-reference-react/style.css";
+import { ApiReferenceReact } from '@scalar/api-reference-react';
+import '@scalar/api-reference-react/style.css';
 
 interface Props {
   specUrl: string;
@@ -11,7 +11,7 @@ export default function ScalarApiViewer({ specUrl, title }: Props) {
     <ApiReferenceReact
       configuration={{
         spec: { url: specUrl },
-        theme: "kepler",
+        theme: 'kepler',
         hideDarkModeToggle: true,
         defaultOpenAllTags: false,
         hideDownloadButton: false,
