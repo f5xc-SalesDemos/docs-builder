@@ -34,7 +34,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "astro": "^6.0.0",
-    "@f5xc-salesdemos/docs-theme": "^2.9.0",
+    "@f5xc-salesdemos/docs-theme": "^2.10.0",
     "@lucide/astro": "^0.577.0",
     "puppeteer": "^24.39.1",
     "puppeteer-autoscroll-down": "^2.0.0",
