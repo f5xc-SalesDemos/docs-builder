@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.2",
+    "@astrojs/react": "^5.0.0",
     "@astrojs/starlight": "^0.37.7",
     "@hashicorp/flight-icons": "^4.2.0",
     "@iconify-json/carbon": "^1.2.19",
