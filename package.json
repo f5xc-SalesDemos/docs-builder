@@ -33,7 +33,7 @@
     "@scalar/api-reference-react": "^0.9.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^5.18.0",
+    "astro": "^6.0.5",
     "@f5xc-salesdemos/docs-theme": "^2.4.0",
     "@lucide/astro": "^0.577.0",
     "puppeteer": "^24.38.0",
