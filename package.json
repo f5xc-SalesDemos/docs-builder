@@ -11,7 +11,7 @@
   "dependencies": {
     "@astrojs/react": "^5.0.1",
     "@astrojs/starlight": "^0.38.2",
-    "@f5xc-salesdemos/docs-theme": "^2.10.3",
+    "@f5xc-salesdemos/docs-theme": "^2.12.0",
     "@f5xc-salesdemos/icons-aws": "*",
     "@f5xc-salesdemos/icons-azure": "*",
     "@f5xc-salesdemos/icons-carbon": "*",
@@ -32,7 +32,7 @@
     "@iconify-json/simple-icons": "^1",
     "@iconify-json/tabler": "^1.2.32",
     "@lucide/astro": "^1.0.0",
-    "@scalar/api-reference-react": "^0.9.13",
+    "@scalar/api-reference-react": "^0.9.17",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "astro": "^6.0.8",
