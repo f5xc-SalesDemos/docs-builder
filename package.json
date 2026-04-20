@@ -24,7 +24,7 @@
     "@f5xc-salesdemos/icons-phosphor": "*",
     "@f5xc-salesdemos/icons-simple-icons": "*",
     "@f5xc-salesdemos/icons-tabler": "*",
-    "@hashicorp/flight-icons": "^4.2.1",
+    "@hashicorp/flight-icons": "^5.0.0",
     "@iconify-json/carbon": "^1.2.19",
     "@iconify-json/lucide": "^1.2.102",
     "@iconify-json/mdi": "^1.2.3",
