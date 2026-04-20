@@ -11,7 +11,7 @@
   "dependencies": {
     "@astrojs/react": "^5.0.3",
     "@astrojs/starlight": "^0.38.3",
-    "@f5xc-salesdemos/docs-theme": "^2.14.2",
+    "@f5xc-salesdemos/docs-theme": "^2.15.1",
     "@f5xc-salesdemos/icons-aws": "*",
     "@f5xc-salesdemos/icons-azure": "*",
     "@f5xc-salesdemos/icons-carbon": "*",
@@ -36,7 +36,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "astro": "^6.1.5",
-    "puppeteer": "^24.40.0",
+    "puppeteer": "^24.42.0",
     "puppeteer-autoscroll-down": "^2.0.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
