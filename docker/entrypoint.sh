@@ -15,6 +15,9 @@ fi
 
 # Normalize Terraform-style page_title to Starlight-required title
 # Terraform provider doc generators use page_title; Starlight's docsSchema requires title.
+# Note: This transform handles single-line page_title values only.
+# Multiline YAML block scalar values (|- or >) are not supported.
+# Terraform-provider-f5xc uses single-line titles so this is sufficient.
 find /app/src/content/docs \( -name '*.md' -o -name '*.mdx' \) -exec sh -c '
   for f do
     if head -1 "$f" | grep -q "^---"; then
@@ -68,15 +71,29 @@ fi
 # Read optional LLMs configuration from llms-config.json (if present in content)
 if [ -z "$LLMS_CONFIG" ] && [ -f /app/src/content/docs/llms-config.json ]; then
   LLMS_CONFIG=$(cat /app/src/content/docs/llms-config.json)
-  export LLMS_CONFIG
-  rm /app/src/content/docs/llms-config.json
+  # Validate JSON before export
+  if ! echo "$LLMS_CONFIG" | python3 -m json.tool > /dev/null 2>&1; then
+    echo "WARNING: llms-config.json is invalid JSON — ignoring, using defaults"
+    unset LLMS_CONFIG
+  else
+    export LLMS_CONFIG
+    rm /app/src/content/docs/llms-config.json
+    echo "LLMs config loaded"
+  fi
 fi
 
 # Read optional LLMs federated sites from llms-federated-sites.json (if present in content)
 if [ -z "$LLMS_FEDERATED_SITES" ] && [ -f /app/src/content/docs/llms-federated-sites.json ]; then
   LLMS_FEDERATED_SITES=$(cat /app/src/content/docs/llms-federated-sites.json)
-  export LLMS_FEDERATED_SITES
-  rm /app/src/content/docs/llms-federated-sites.json
+  # Validate JSON before export
+  if ! echo "$LLMS_FEDERATED_SITES" | python3 -m json.tool > /dev/null 2>&1; then
+    echo "WARNING: llms-federated-sites.json is invalid JSON — ignoring, using defaults"
+    unset LLMS_FEDERATED_SITES
+  else
+    export LLMS_FEDERATED_SITES
+    rm /app/src/content/docs/llms-federated-sites.json
+    echo "LLMs federated sites loaded"
+  fi
 fi
 
 # Extract base path from repo name (if not set via env)
