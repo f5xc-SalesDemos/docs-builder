@@ -40,6 +40,20 @@ if [ -z "$LLMS_OPTIONAL_LINKS" ] && [ -f /app/src/content/docs/llms-links.json ]
   rm /app/src/content/docs/llms-links.json
 fi
 
+# Read optional LLMs configuration from llms-config.json (if present in content)
+if [ -z "$LLMS_CONFIG" ] && [ -f /app/src/content/docs/llms-config.json ]; then
+  LLMS_CONFIG=$(cat /app/src/content/docs/llms-config.json)
+  export LLMS_CONFIG
+  rm /app/src/content/docs/llms-config.json
+fi
+
+# Read optional LLMs federated sites from llms-federated-sites.json (if present in content)
+if [ -z "$LLMS_FEDERATED_SITES" ] && [ -f /app/src/content/docs/llms-federated-sites.json ]; then
+  LLMS_FEDERATED_SITES=$(cat /app/src/content/docs/llms-federated-sites.json)
+  export LLMS_FEDERATED_SITES
+  rm /app/src/content/docs/llms-federated-sites.json
+fi
+
 # Extract base path from repo name (if not set via env)
 if [ -z "$DOCS_BASE" ] && [ -n "$GITHUB_REPOSITORY" ]; then
   DOCS_BASE="/${GITHUB_REPOSITORY#*/}"
