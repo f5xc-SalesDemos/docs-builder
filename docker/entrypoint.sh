@@ -15,7 +15,7 @@ fi
 
 # Normalize Terraform-style page_title to Starlight-required title
 # Terraform provider doc generators use page_title; Starlight's docsSchema requires title.
-for f in $(find /app/src/content/docs -name '*.md' -o -name '*.mdx'); do
+find /app/src/content/docs \( -name '*.md' -o -name '*.mdx' \) -print0 | while IFS= read -r -d '' f; do
   if head -1 "$f" | grep -q '^---'; then
     if grep -q '^page_title:' "$f" && ! grep -q '^title:' "$f"; then
       sed -i 's/^page_title:/title:/' "$f"
@@ -25,7 +25,7 @@ done
 
 # Add frontmatter to .md files that have none (e.g., Terraform provider guide indices)
 # Starlight requires YAML frontmatter with at least a title field.
-for f in $(find /app/src/content/docs -name '*.md'); do
+find /app/src/content/docs -name '*.md' -print0 | while IFS= read -r -d '' f; do
   if ! head -1 "$f" | grep -q '^---'; then
     heading=$(grep -m1 '^# ' "$f" | sed 's/^# //')
     if [ -n "$heading" ]; then
