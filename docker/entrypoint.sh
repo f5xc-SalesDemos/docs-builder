@@ -72,7 +72,7 @@ fi
 if [ -z "$LLMS_CONFIG" ] && [ -f /app/src/content/docs/llms-config.json ]; then
   LLMS_CONFIG=$(cat /app/src/content/docs/llms-config.json)
   # Validate JSON before export
-  if ! echo "$LLMS_CONFIG" | python3 -m json.tool > /dev/null 2>&1; then
+  if ! echo "$LLMS_CONFIG" | python3 -m json.tool >/dev/null 2>&1; then
     echo "WARNING: llms-config.json is invalid JSON — ignoring, using defaults"
     unset LLMS_CONFIG
   else
@@ -86,7 +86,7 @@ fi
 if [ -z "$LLMS_FEDERATED_SITES" ] && [ -f /app/src/content/docs/llms-federated-sites.json ]; then
   LLMS_FEDERATED_SITES=$(cat /app/src/content/docs/llms-federated-sites.json)
   # Validate JSON before export
-  if ! echo "$LLMS_FEDERATED_SITES" | python3 -m json.tool > /dev/null 2>&1; then
+  if ! echo "$LLMS_FEDERATED_SITES" | python3 -m json.tool >/dev/null 2>&1; then
     echo "WARNING: llms-federated-sites.json is invalid JSON — ignoring, using defaults"
     unset LLMS_FEDERATED_SITES
   else
