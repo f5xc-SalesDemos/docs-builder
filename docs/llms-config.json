@@ -1,0 +1,11 @@
+{
+  "customSets": [
+    {
+      "label": "Architecture",
+      "description": "Build pipeline architecture and container design",
+      "paths": ["architecture*", "ci-cd*", "docker*"]
+    }
+  ],
+  "promote": ["index*", "content-authors*"],
+  "demote": ["placeholder-system*"]
+}
